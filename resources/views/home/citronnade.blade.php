@@ -14,8 +14,9 @@
             <div class="row">
                 <div class="col">
                     <div class="card bg-warning-subtle mt-3">
-                        {{-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
-                            <div class="card-body">
+                        {{-- testing photo --}}
+                        <img src="{{ asset('storage/public/photos' . $article->image) }}" alt="Image de l'article">
+                        <div class="card-body">
                                 <h3 class="card-title">{{ $article->titre }}</h3>
                                 <p>
                                     @if(strlen($article->contenu) > 100)

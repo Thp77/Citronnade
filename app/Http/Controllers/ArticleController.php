@@ -39,6 +39,8 @@ class ArticleController extends Controller
             'contenu'=>'required',
         ]
     );
+
+
     $user = Auth::user();
     $article = new Article();
     $article->titre = $request->titre;
@@ -63,6 +65,27 @@ class ArticleController extends Controller
         $article = Article::find($id);
         return view('article.show', compact('article'));
     }
+
+
+    /**
+     *
+     * Création de la fonction Search
+     */
+
+     public function search(Request $request)
+     {
+       $request->validate([
+         'query' => 'required',
+       ]);
+
+       $query = $request->input('query');
+
+       $articles = Article::where('titre', 'like', '%' . $query . '%')
+                           ->orWhere('contenu', 'like', '%' . $query . '%')
+                           ->get();
+
+       return view('search', compact('articles'));
+     }
 
     /**
      * Update the specified resource in storage.

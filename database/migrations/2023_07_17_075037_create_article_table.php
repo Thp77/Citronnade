@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id'); // Ajoute cette ligne
-            $table->foreign('user_id')->references('id')->on('users'); // Ajoute cette ligne pour définir la clé étrangère
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->id();
             $table->string('titre');
             $table->longText('contenu')->nullable();
             $table->string('categorie')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image')->nullable(); // Ajoute cette ligne pour le chemin d'accès à l'image
             $table->timestamps();
         });
     }

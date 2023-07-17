@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Api\UserController;
@@ -20,9 +21,9 @@ use App\Http\Controllers\CitronnadeController;
 */
 
 // Route page de nav
-Route::get('/', function () {
-    return view('home.home');
-})->name('app_home');
+// Route::get('/', function () {
+//     return view('home.home');
+// })->name('app_home');
 
 Route::get('/about', function () {
     return view('home.about');
@@ -32,9 +33,19 @@ Route::get('/about', function () {
 //     return view('home.citronnade');
 // })->name('app_citronnade');
 
+
+Route::get('/home.accueil', [HomeController::class, 'index'])->name('accueil.index');
+
+
 Route::get('/home.citronnade', [CitronnadeController::class, 'index'])->name('citronnade.index');
 
 /////////////////////////////////////////
+// permet de gerer la recherche ////////
+
+Route::get('/articles/search', [ArticleController::class, 'search'])->name('article.search');
+
+/////////////////////////////////////////
+
 
 //Route pour des API
 Route::get('/api/users',[UserController::class, 'index']);
