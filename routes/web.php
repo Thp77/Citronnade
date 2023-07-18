@@ -20,20 +20,15 @@ use App\Http\Controllers\CitronnadeController;
 |
 */
 
-// Route page de nav
-// Route::get('/', function () {
-//     return view('home.home');
-// })->name('app_home');
+
+//Page de navigation/////////////////////
 
 Route::get('/about', function () {
     return view('home.about');
 })->name('app_about');
 
-// Route::get('/citronnade', function () {
-//     return view('home.citronnade');
-// })->name('app_citronnade');
 
-
+Route::get('/', [HomeController::class, 'index'])->name('accueil.index');
 Route::get('/home.accueil', [HomeController::class, 'index'])->name('accueil.index');
 
 
