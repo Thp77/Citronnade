@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    container_name: site_rond_db
+    image: postgres:alpine3.17
+    ports:
+      - "8083:5432"
+    environment:
+      POSTGRES_USER: site_rond
+      POSTGRES_PASSWORD: site_rond
+      POSTGRES_DB: site_rond
+    restart: unless-stopped

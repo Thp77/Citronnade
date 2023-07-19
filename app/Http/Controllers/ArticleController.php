@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -48,6 +49,7 @@ class ArticleController extends Controller
     $article->categorie = $request->categorie;
     $article->image = $request->image;
     $article->user_id = $user->id;
+    // Storage::disk('public')->put($article->image,'Contents');
 
     $article->save();
 
