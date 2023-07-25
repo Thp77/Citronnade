@@ -49,7 +49,7 @@ class ArticleController extends Controller
     $article->categorie = $request->categorie;
     $article->image = $request->image;
     $article->user_id = $user->id;
-    Storage::disk('/storage/app/public/photos')->put($article->image,'{{$article->image}}');
+    // Storage::disk('public/photos')->put($article->image,'Contents');
 
     $article->save();
 

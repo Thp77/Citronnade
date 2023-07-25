@@ -57,28 +57,27 @@
     </div>
 
 
-    <h2 class="container text-center mt-3 mb-3">Nos derniers articles </h2>
-    <div style="max-height:280px; width:auto"
-        class=" shadow bg-warning-subtle rounded mt-3 m-3 p-3 carousel d-flex align-item-center justify-content-center">
-        <div id="slider" class=" carousel " data-bs-ride="carousel">
-            <div class="carousel-inner ">
-                @foreach ($articles as $index => $article)
-                    <div class="carousel-item @if ($loop->first) active @endif">
-                        <a href="{{ route('citronnade.index', $article->id) }}" class="text-decoration-none">
-                            <div class="card  bg-warning-subtle border-0">
-                                {{-- image testing code --}}
-                                <img src="{{ asset('/storage/app/public/photos' . $article->image) }}" alt="{{$article->image}}">
-                                <div class="card-body ">
-                                    <h5 class="card-title ">{{ $article->titre }}</h5>
-                                    <p class="card-text">{{ $article->contenu }}</p>
-                                </div>
-                            </div>
-                        </a>
+    <h2 class="container-fluid text-center  mt-3">Nos derniers articles </h2>
+
+    <div id="slider" class=" carousel  " data-bs-ride="carousel">
+        <div class="  d-flex carousel-inner  mt-3 align-item-center  justify-content-center  ">
+            @foreach ($articles as $index => $article)
+                <div class="carousel-item  @if ($loop->first) active @endif">
+                    <div class="card shadow p-3 mb-5 rounded bg-warning-subtle " style="width: 20rem;">
+                        <img src="{{ asset('/storage/app/public/photos' . $article->image) }}" alt="{{ $article->image }}">
+                        <div class="card-body ">
+                            <h5 class="card-title ">{{ $article->titre }}</h5>
+                            <p class="card-text ">{{ substr($article->contenu, 0, 99) }}...</p>
+                            <a href="{{ route('citronnade.index', $article->id) }}" class="btn btn-success">Lire plus </a>
+                        </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
     </div>
+    </div>
+
+
     <script>
         const slider = new bootstrap.Carousel(document.getElementById('slider'), {
             interval: false

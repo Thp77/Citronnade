@@ -28,9 +28,9 @@
                                         <br>
                                         <br>
 
-                                            <a href="#" class="read-more-link text-decoration-none btn btn-success bg-success text-white  ">Lire plus</a>
+                                            <a href="#" class="read-more-link text-decoration-none btn btn-success bg-success text-white  ">+</a>
 
-                                            <a href="#" class="read-less-link text-decoration-none btn btn-success bg-success text-white " style="display: none;">Lire moins</a>
+                                            <a href="#" class="read-less-link text-decoration-none btn btn-success bg-success text-white " style="display: none;">-</a>
                                         @endif
                                     @else
                                         {{ $article->contenu }}
