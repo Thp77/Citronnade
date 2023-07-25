@@ -40,6 +40,7 @@
                                         plus</a>
                                     <br>
                                     <br>
+                                    <br>
                                     <a href="#"
                                         class="read-less-link text-decoration-none btn btn-success bg-success text-white "
                                         style="display: none;">Lire moins</a>
@@ -50,7 +51,7 @@
                         </td>
                         <td>{{ $article->categorie }}</td>
                         <td> {{-- testing photo --}}
-                            <img src="{{ asset('storage/public/photos' . $article->image) }}" alt=" {{$article->image}}"></td>
+                            <img src="{{ asset('storage/app/public/photos/' . $article->image) }}" alt=" {{$article->image}}"></td>
 
                         @auth
                             <td>

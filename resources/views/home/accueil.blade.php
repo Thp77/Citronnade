@@ -67,7 +67,7 @@
                         <a href="{{ route('citronnade.index', $article->id) }}" class="text-decoration-none">
                             <div class="card  bg-warning-subtle border-0">
                                 {{-- image testing code --}}
-                                <img src="{{ asset('storage/public/photos' . $article->image) }}" alt="Image de l'article">
+                                <img src="{{ asset('/storage/app/public/photos' . $article->image) }}" alt="{{$article->image}}">
                                 <div class="card-body ">
                                     <h5 class="card-title ">{{ $article->titre }}</h5>
                                     <p class="card-text">{{ $article->contenu }}</p>

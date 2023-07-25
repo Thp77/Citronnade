@@ -10,17 +10,17 @@
 </div>
 
     @foreach ($articles as $article)
-        <div class="container-fluid row row-cols-2  justify-content-center">
+        <div class="container-fluid  justify-content-center">
             <div class="row">
                 <div class="col">
                     <div class="card bg-warning-subtle mt-3">
                         {{-- testing photo --}}
-                        <img src="{{ asset('storage/public/photos' . $article->image) }}" alt="Image de l'article">
+                        <img src="{{ asset('storage/public/photos' . $article->image) }}" alt="{{$article->image}}">
                         <div class="card-body">
-                                <h3 class="card-title">{{ $article->titre }}</h3>
+                                <h3 class="card-title text-center">{{ $article->titre }}</h3>
                                 <p>
                                     @if(strlen($article->contenu) > 100)
-                                        <span class="read-more-content">
+                                        <span class="read-more-content text-start">
                                             {{ substr($article->contenu, 0, 100) }} <span class="read-more-dots">...</span>
                                             <span class="read-more-hidden" style="display: none;">{{ substr($article->contenu, 100) }}</span>
                                         </span>
@@ -37,10 +37,9 @@
                                     @endif
                                 </p>
 
-                                <p class="card-text">{{ $article->categorie }}</p>
+                                <p class="card-text fw-bolder">{{ $article->categorie }}</p>
 
 
-                                {{-- <a href="#" class="btn btn-success  d-grid col-4 mx-auto">Voir plus </a> --}}
                             </div>
 
                     </div>
