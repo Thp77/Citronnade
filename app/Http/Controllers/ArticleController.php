@@ -96,10 +96,11 @@ class ArticleController extends Controller
     public function update(Request $request)
     {
            //traitement de l'ajout d'un article
-           $request->validate(
+           $validate = $request->validate(
             [
                 'titre'=>'required',
                 'contenu'=>'required',
+                'image' =>'required'
             ]
         );
 
