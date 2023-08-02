@@ -15,7 +15,7 @@
                 <div class="col">
                     <div class="card bg-warning-subtle mt-3">
                         {{-- testing photo --}}
-                        <img src="{{ asset('storage/public/photos' . $article->image) }}" alt="{{$article->image}}">
+                        <img src="{{ asset('storage/app/public/' . $article->image) }}" alt="{{$article->image}}">
                         <div class="card-body">
                                 <h3 class="card-title text-center">{{ $article->titre }}</h3>
                                 <p>

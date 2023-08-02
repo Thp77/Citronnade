@@ -64,7 +64,7 @@
             @foreach ($articles as $index => $article)
                 <div class="carousel-item  @if ($loop->first) active @endif">
                     <div class="card shadow p-3 mb-5 rounded bg-warning-subtle " style="width: 20rem;">
-                        <img src="{{ asset('/storage/app/public/photos' . $article->image) }}" alt="{{ $article->image }}">
+                        <img src="{{ asset('storage/app/public/' . $article->image) }}" alt="{{ $article->image }}">
                         <div class="card-body ">
                             <h5 class="card-title ">{{ $article->titre }}</h5>
                             <p class="card-text ">{{ substr($article->contenu, 0, 99) }}...</p>
