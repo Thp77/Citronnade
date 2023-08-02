@@ -51,7 +51,7 @@
                         </td>
                         <td>{{ $article->categorie }}</td>
                         <td> {{-- testing photo --}}
-                            <img src="{{ asset('/storage/app/public/' . $article->image) }}" alt=" {{$article->image}}"></td>
+                            <img src="{{ asset('storage/' . $article->image) }}" alt=" {{$article->image}}"></td>
 
                         @auth
                             <td>

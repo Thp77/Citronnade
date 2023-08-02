@@ -34,10 +34,12 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         //traitement de l'ajout d'un article
-        $request->validate(
+        $validate = $request->validate(
         [
             'titre'=>'required',
             'contenu'=>'required',
+            'image' => 'required'
+
         ]
     );
 
@@ -49,9 +51,8 @@ class ArticleController extends Controller
     $article->categorie = $request->categorie;
     $article->image = $request->image;
     $article->user_id = $user->id;
-    Storage::disk('storage/app/public/')->put($article->image,'Contents');
-
     $article->save();
+    $article = Storage::disk('public')->put('photos', $request->image);
 
     return redirect()->route('article.index')->with('status','Félicitation votre citronnade est maintenant prêtre à être dégusté !!');
 
@@ -109,6 +110,8 @@ class ArticleController extends Controller
         $article->image = $request->image;
 
         $article->update();
+        $article = Storage::disk('public')->put('photos', $request->image);
+
 
         return redirect()->route('article.index', $request->id)->with('status','Félicitation votre citronnade est maintenant à jour !!');
     }
